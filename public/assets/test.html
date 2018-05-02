@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css\burger_style.css" type="text/css">
+    <title>Hamburglar uses Devour!</title>
+</head>
+
+<body>
+
+    <div class="jumbotron">
+        <h1 class="mainHeader">Nom all the Burgers!</h1>
+        <img class='mainImage' src="https://static-cdn.jtvnw.net/jtv_user_pictures/hamburglar_v1-profile_image-ce597fc1fb83299d-300x300.jpeg"
+            alt="Hamburgler">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{#each burgers}} {{#unless this.devoured}}
+                    </div>
+                    <div class="col-sm-6 center">
+                        {{this.burger_name}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <form class='userInput' action="/{{this.id}}?_method=PUT" method="POST">
+                            <div class="form-group">
+                                <input type="hidden" name="devoured" value="true">
+                            </div>
+                            <button class='btn btn-primary' id='submitButton'>
+                                Robble! Robble!
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{#each burgers}} {{#unless this.devoured}}
+                    </div>
+                    <div class="col-sm-6 center">
+                        {{this.burger_name}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <form action="/{{this.id}}?_method=PUT" method='POST' class="userInput">
+                            <div class="form-group">
+                                <input type="hidden" name="devoured" value="true">
+                            </div>
+                            <button class='btn btn-primary' id='submitButton2'>
+                                Nom Nom!
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 orderRow">
+                <form action="/" method='POST' class="updateForm">
+                    <div class="form-group">
+                        <input type="text" id="ca" name="name" placeholder="Hoard all the Burgers!">
+                    </div>
+                    <button class='btn btn-primary' type='submit' id='submitButton3'>
+                        Place Order
+                    </button>
+                </form>
+                <h3 class="orderHere">Enter the name of your burger, and place your order!</h3>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
